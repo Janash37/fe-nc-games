@@ -1,9 +1,20 @@
 import "./App.css";
 
+import { useState } from "react";
+
+//COMPONENTS
+import Header from "./components/Header";
+
+//USER CONTEXT
+import { UserContext } from "./contexts/UserContext";
+
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Jan's board game review emporium!</h1>
+      <header>
+        <Header />
+        <NavBar />
+      </header>
     </div>
   );
 }
