@@ -55,6 +55,7 @@
 /* NAV BAR */
 
 #nav-bar {
+  background-color: bisque;
   padding: 1rem;
 }
 
@@ -75,8 +76,9 @@
   margin: 0.75rem;
 }
 
-.home-category-button :hover {
+.home-category-button:hover {
   background-color: #282c34;
+  color: white;
   padding: 1rem;
   margin: 0.75rem;
 }
@@ -88,15 +90,35 @@
   width: 100%;
 }
 
+#review-links {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+#review-text {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.review-home-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
 #all-reviews-li {
   border: 1px solid darkgray;
   display: inline-block;
   font-size: 0.9rem;
   list-style: none;
-  margin: 0.5rem 3rem 0.5rem 0;
+  margin: 0.5rem 2.5rem 0.5rem 0;
   padding: 0.25rem;
 }
 
 #review-body {
   font-style: italic;
+}
+
+.reviews-list {
 }

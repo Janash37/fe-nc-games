@@ -15,7 +15,3 @@ export const getAllReviews = () => {
       return data.reviews;
     });
 };
-
-export const selectCategory = () => {
-  return api.get(`/reviews`);
-};

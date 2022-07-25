@@ -9,6 +9,8 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ReviewsHome from "./components/ReviewsHome";
 import AllReviews from "./components/AllReviews";
+import DeckBuilding from "./components/DeckBuilding";
+import Dexterity from "./components/Dexterity";
 
 //USER CONTEXT
 import { UserContext } from "./contexts/UserContext";
@@ -24,6 +26,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/reviews" element={<ReviewsHome />} />
             <Route path="/reviews/all" element={<AllReviews />}></Route>
+            <Route
+              path="/reviews/deck-building"
+              element={<DeckBuilding />}
+            ></Route>
+            <Route path="/reviews/dexterity" element={<Dexterity />}></Route>
           </Routes>
         </header>
       </div>

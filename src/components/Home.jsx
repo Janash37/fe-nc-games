@@ -15,18 +15,17 @@ export default function Home() {
       <Link to="/reviews/all">
         <button className="home-category-button">All Reviews</button>
       </Link>
-      <button className="home-category-button" onClick={selectCategory}>
-        Children's
-      </button>
-      <button className="home-category-button" onClick={selectCategory}>
-        Dexterity
-      </button>
-      <button className="home-category-button" onClick={selectCategory}>
-        Euro Game
-      </button>
-      <button className="home-category-button" onClick={selectCategory}>
-        Deduction
-      </button>
+      <Link to="/reviews/deck-building">
+        <button className="home-category-button">Deck-building</button>
+      </Link>
+      <Link to="/reviews/dexterity">
+        <button className="home-category-button">Dexterity</button>
+      </Link>
+      <button className="home-category-button">Engine-building</button>
+      <button className="home-category-button">Hidden Roles</button>
+      <button className="home-category-button">Push Your Luck</button>
+      <button className="home-category-button">Roll-and-Write</button>
+      <button className="home-category-button">Strategy</button>
     </section>
   );
 }

@@ -19,18 +19,21 @@ export default function ReviewsHome() {
         <p>Loading reviews..</p>
       ) : (
         <div>
+          <p>Now viewing all "Dexterity" games:</p>
           <ul className="reviews-list">
             {reviews.map((review) => {
-              return (
-                <li id="all-reviews-li" key={review.created_at}>
-                  <p>
-                    <strong>{review.title}</strong>
-                  </p>
-                  <p>By: {review.owner}</p>
-                  <p id="review-body">{review.review_body}</p>
-                  <p>Votes: {review.votes}</p>
-                </li>
-              );
+              if (review.category === "dexterity") {
+                return (
+                  <li id="all-reviews-li" key={review.created_at}>
+                    <p>
+                      <strong>{review.title}</strong>
+                    </p>
+                    <p>By: {review.owner}</p>
+                    <p id="review-body">{review.review_body}</p>
+                    <p>Votes: {review.votes}</p>
+                  </li>
+                );
+              }
             })}
           </ul>
         </div>
