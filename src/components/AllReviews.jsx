@@ -27,6 +27,7 @@ export default function ReviewsHome() {
                     <strong>{review.title}</strong>
                   </p>
                   <p>By: {review.owner}</p>
+                  <p id="review-body">{review.review_body}</p>
                   <p>Votes: {review.votes}</p>
                 </li>
               );
