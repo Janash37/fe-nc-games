@@ -1,5 +1,6 @@
 import { getAllReviews } from "../utils/api";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,7 @@ export default function ReviewsHome() {
           <ul className="reviews-list">
             {reviews.map((review) => {
               return (
-                <li id="all-reviews-li" key={review.created_at}>
+                <li id="all-reviews-li" key={review.review_id}>
                   <p>
                     <strong>{review.title}</strong>
                   </p>
@@ -33,6 +34,9 @@ export default function ReviewsHome() {
               );
             })}
           </ul>
+          <Link to="/reviews">
+            <button className="back-button">Back</button>
+          </Link>
         </div>
       )}
     </section>

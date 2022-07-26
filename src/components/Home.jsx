@@ -21,11 +21,21 @@ export default function Home() {
       <Link to="/reviews/dexterity">
         <button className="home-category-button">Dexterity</button>
       </Link>
-      <button className="home-category-button">Engine-building</button>
-      <button className="home-category-button">Hidden Roles</button>
-      <button className="home-category-button">Push Your Luck</button>
-      <button className="home-category-button">Roll-and-Write</button>
-      <button className="home-category-button">Strategy</button>
+      <Link to="/reviews/engine-building">
+        <button className="home-category-button">Engine-building</button>
+      </Link>
+      <Link to="/reviews/hidden-roles">
+        <button className="home-category-button">Hidden Roles</button>
+      </Link>
+      <Link to="/reviews/push-your-luck">
+        <button className="home-category-button">Push Your Luck</button>
+      </Link>
+      <Link to="/reviews/roll-and-write">
+        <button className="home-category-button">Roll-and-Write</button>
+      </Link>
+      <Link to="/reviews/strategy">
+        <button className="home-category-button">Strategy</button>
+      </Link>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import { getAllReviews } from "../utils/api";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,12 +20,14 @@ export default function ReviewsHome() {
         <p>Loading reviews..</p>
       ) : (
         <div>
-          <p>Now viewing all "Deck-building" games:</p>
+          <p className="review-text">
+            What our users are saying about "Deck-building" games:
+          </p>
           <ul className="reviews-list">
             {reviews.map((review) => {
               if (review.category === "deck-building") {
                 return (
-                  <li id="all-reviews-li" key={review.created_at}>
+                  <li id="all-reviews-li" key={review.review_id}>
                     <p>
                       <strong>{review.title}</strong>
                     </p>
@@ -36,6 +39,9 @@ export default function ReviewsHome() {
               }
             })}
           </ul>
+          <Link to="/reviews">
+            <button className="back-button">Back</button>
+          </Link>
         </div>
       )}
     </section>

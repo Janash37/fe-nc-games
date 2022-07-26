@@ -21,11 +21,11 @@ export default function ReviewsHome() {
       ) : (
         <div>
           <p className="review-text">
-            What our users are saying about "Dexterity" games:
+            What our users are saying about "Push Your Luck" games:
           </p>
           <ul className="reviews-list">
             {reviews.map((review) => {
-              if (review.category === "dexterity") {
+              if (review.category === "push-your-luck") {
                 return (
                   <li id="all-reviews-li" key={review.review_id}>
                     <p>

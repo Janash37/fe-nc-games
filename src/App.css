@@ -83,7 +83,7 @@
   margin: 0.75rem;
 }
 
-/* REVIEWS HOMEPAGE */
+/* REVIEWS */
 
 #reviews-homepage {
   margin: auto;
@@ -96,8 +96,9 @@
   margin: auto;
 }
 
-#review-text {
-  margin: 1rem 0 0.5rem 0;
+.review-text {
+  margin: 1rem auto;
+  width: 90%;
 }
 
 .review-home-link {
@@ -120,5 +121,10 @@
   font-style: italic;
 }
 
-.reviews-list {
+.back-button {
+  background-color: bisque;
+  border: 1px solid black;
+  box-shadow: 2px 2px gray;
+  padding: 0.25rem;
+  margin: 0 auto 1.5rem auto;
 }
