@@ -39,7 +39,10 @@ export default function ReviewsHome() {
                     <strong>{review.title}</strong>
                   </p>
                   <p>By: {review.owner}</p>
-                  <p id="review-body">{review.review_body}</p>
+                  <p id="review-body">
+                    {review.review_body.slice(0, 150) + "..."}
+                  </p>
+                  <button id="btn-read-more">Read more!</button>
                   <p>Votes: {review.votes}</p>
                 </li>
               );

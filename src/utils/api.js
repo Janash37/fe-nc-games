@@ -26,3 +26,14 @@ export const getReviewsByCategory = (category) => {
       return data.reviews;
     });
 };
+
+export const getReviewById = (review_id) => {
+  return api
+    .get(`/reviews/${review_id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .then((data) => {
+      console.log(data);
+    });
+};

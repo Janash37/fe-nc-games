@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ReviewsHome from "./components/ReviewsHome";
 import AllReviews from "./components/AllReviews";
+import IndividualReview from "./components/IndividualReview";
 
 //USER CONTEXT
 import { UserContext } from "./contexts/UserContext";
@@ -25,6 +26,10 @@ function App() {
             <Route path="/reviews" element={<ReviewsHome />} />
             <Route path="/reviews/all" element={<AllReviews />}></Route>
             <Route path="/reviews/:category" element={<AllReviews />}></Route>
+            <Route
+              path="/reviews/:review_id"
+              element={<IndividualReview />}
+            ></Route>
           </Routes>
         </header>
       </div>

@@ -74,6 +74,8 @@
 /* REVIEWS */
 
 #reviews-homepage {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   width: 100%;
 }
@@ -87,15 +89,18 @@
   background-color: bisque;
   border: 1px solid black;
   box-shadow: 2px 2px gray;
+  cursor: pointer;
   padding: 0.6rem;
   margin: 0.75rem;
 }
 
 #review-links {
   align-items: flex-start;
+  align-self: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 90%;
 }
 
 #review-column-1 {
