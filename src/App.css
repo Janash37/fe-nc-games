@@ -77,8 +77,9 @@
 }
 
 .home-category-button:hover {
-  background-color: #282c34;
-  color: white;
+  background-color: bisque;
+  border: 1px solid black;
+  box-shadow: 2px 2px gray;
   padding: 1rem;
   margin: 0.75rem;
 }

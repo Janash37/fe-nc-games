@@ -15,3 +15,14 @@ export const getAllReviews = () => {
       return data.reviews;
     });
 };
+
+export const getReviewsByCategory = (category) => {
+  return api
+    .get(`/reviews?category=${category}`)
+    .then((response) => {
+      return response.data;
+    })
+    .then((data) => {
+      return data.reviews;
+    });
+};

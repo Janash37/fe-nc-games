@@ -1,17 +1,25 @@
-import { getAllReviews } from "../utils/api";
+import { getAllReviews, getReviewsByCategory } from "../utils/api";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
+  const { category } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    getAllReviews().then((reviews) => {
-      setReviews(reviews);
-      setIsLoading(false);
-    });
+    if (!category) {
+      getAllReviews().then((reviews) => {
+        setReviews(reviews);
+        setIsLoading(false);
+      });
+    } else {
+      getReviewsByCategory(category).then((reviews) => {
+        setReviews(reviews);
+        setIsLoading(false);
+      });
+    }
   }, []);
 
   return (
@@ -20,6 +28,9 @@ export default function ReviewsHome() {
         <p>Loading reviews..</p>
       ) : (
         <div>
+          <p className="review-text">
+            See what our users are saying about these games!
+          </p>
           <ul className="reviews-list">
             {reviews.map((review) => {
               return (
