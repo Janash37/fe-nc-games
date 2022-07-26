@@ -27,7 +27,7 @@ function App() {
             <Route path="/reviews/all" element={<AllReviews />}></Route>
             <Route path="/reviews/:category" element={<AllReviews />}></Route>
             <Route
-              path="/reviews/:review_id"
+              path="/reviews/review/:review_id"
               element={<IndividualReview />}
             ></Route>
           </Routes>

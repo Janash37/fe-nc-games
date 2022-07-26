@@ -34,6 +34,17 @@ export const getReviewById = (review_id) => {
       return response.data;
     })
     .then((data) => {
-      console.log(data);
+      return data.review[0];
+    });
+};
+
+export const getReviewComments = (review_id) => {
+  return api
+    .get(`/reviews/${review_id}/comments`)
+    .then((response) => {
+      return response.data;
+    })
+    .then((data) => {
+      return data.comments;
     });
 };
