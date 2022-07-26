@@ -11,7 +11,11 @@ export default function Home() {
         Browse the entire list of reviews or, if you're interested in a certain
         genre, filter by category.
       </p>
-      <Link to="/reviews/all">
+      <p>
+        Get started by heading to our <Link to="/reviews">Game Reviews </Link>
+        section.
+      </p>
+      {/* <Link to="/reviews/all">
         <button className="home-category-button">All Reviews</button>
       </Link>
       <Link to="/reviews/deck-building">
@@ -34,7 +38,7 @@ export default function Home() {
       </Link>
       <Link to="/reviews/strategy">
         <button className="home-category-button">Strategy</button>
-      </Link>
+      </Link> */}
     </section>
   );
 }

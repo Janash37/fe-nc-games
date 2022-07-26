@@ -7,32 +7,44 @@ export default function ReviewsHome() {
         Filter board game reviews by category, or view all reviews by clicking
         the link at the bottom:
       </p>
-      <div id="review-links-1">
-        <Link className="review-home-link" to="/reviews/deck-building">
-          Deck-building 🃏
-        </Link>
-        <Link className="review-home-link" to="/reviews/dexterity">
-          Dexterity Games 🎯
-        </Link>
-        <Link className="review-home-link" to="/reviews/engine-building">
-          Engine-building 🔧
-        </Link>
-        <Link className="review-home-link" to="/reviews/hidden-roles">
-          Hidden Roles 🥷
-        </Link>
-        <Link className="review-home-link" to="/reviews/push-your-luck">
-          Push Your Luck 🤞
-        </Link>
-        <Link className="review-home-link" to="/reviews/roll-and-write">
-          Roll-and-Write 🎲
-        </Link>
-        <Link className="review-home-link" to="/reviews/strategy">
-          Strategy 🤔
-        </Link>
+      <div id="review-links">
+        <div id="review-column-1">
+          <Link to="/reviews/deck-building">
+            <button className="review-category-button">Deck-building 🃏</button>
+          </Link>
+          <Link to="/reviews/dexterity">
+            <button className="review-category-button">
+              Dexterity Games 🎯
+            </button>
+          </Link>
+          <Link to="/reviews/engine-building">
+            <button className="review-category-button">
+              Engine-building 🔧
+            </button>
+          </Link>
+          <Link to="/reviews/hidden-roles">
+            <button className="review-category-button">Hidden Roles 🥷</button>
+          </Link>
+        </div>
+        <div id="review-column-1">
+          <Link to="/reviews/push-your-luck">
+            <button className="review-category-button">
+              Push Your Luck 🤞
+            </button>
+          </Link>
+          <Link to="/reviews/roll-and-write">
+            <button className="review-category-button">
+              Roll-and-Write 🎲
+            </button>
+          </Link>
+          <Link to="/reviews/strategy">
+            <button className="review-category-button">Strategy 🤔</button>
+          </Link>
+          <Link to="/reviews/all">
+            <button className="review-category-button">View all reviews</button>
+          </Link>
+        </div>
       </div>
-      <p>
-        Or <Link to="/reviews/all">view all</Link>
-      </p>
     </section>
   );
 }

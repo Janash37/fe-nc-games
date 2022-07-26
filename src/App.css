@@ -71,19 +71,6 @@
   width: 90%;
 }
 
-.home-category-button {
-  padding: 1rem;
-  margin: 0.75rem;
-}
-
-.home-category-button:hover {
-  background-color: bisque;
-  border: 1px solid black;
-  box-shadow: 2px 2px gray;
-  padding: 1rem;
-  margin: 0.75rem;
-}
-
 /* REVIEWS */
 
 #reviews-homepage {
@@ -91,10 +78,32 @@
   width: 100%;
 }
 
+.review-category-button {
+  padding: 0.5rem;
+  margin: 0.75rem;
+}
+
+.review-category-button:hover {
+  background-color: bisque;
+  border: 1px solid black;
+  box-shadow: 2px 2px gray;
+  padding: 0.6rem;
+  margin: 0.75rem;
+}
+
 #review-links {
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
-  margin: auto;
+  justify-content: center;
+}
+
+#review-column-1 {
+  width: 50%;
+}
+
+#review-column-2 {
+  width: 50%;
 }
 
 .review-text {
