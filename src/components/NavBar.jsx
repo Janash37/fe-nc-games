@@ -5,13 +5,13 @@ export default function NavBar() {
   return (
     <section id="nav-bar">
       <Link className="navbar-link" to="/">
-        {"Home"}
+        <strong>{"Home"}</strong>
       </Link>
       <Link className="navbar-link" to="/reviews">
-        {"Game Reviews"}
+        <strong>{"Game Reviews"}</strong>
       </Link>
       <Link className="navbar-link" to="/">
-        {"Profile"}
+        <strong>{"Profile"}</strong>
       </Link>
     </section>
   );
