@@ -1,13 +1,12 @@
 import { getReviewById, getReviewComments } from "../utils/api";
+import { Votes } from "./Votes";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { moment } from "moment";
 
 export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [review, setReview] = useState([]);
   const [comments, setComments] = useState([]);
-  const [votes, setVotes] = useState(null);
   const { review_id } = useParams();
 
   const [error, setError] = useState(false);
@@ -18,7 +17,6 @@ export default function ReviewsHome() {
     getReviewById(review_id)
       .then((review) => {
         setReview(review);
-        setVotes(review.votes);
         getReviewComments(review_id).then((comments) => {
           setComments(comments);
         });
@@ -33,14 +31,6 @@ export default function ReviewsHome() {
         }
       });
   }, []);
-
-  const upVote = () => {
-    setVotes((prevValue) => prevValue + 1);
-  };
-
-  const downVote = () => {
-    setVotes((prevValue) => prevValue - 1);
-  };
 
   if (error) {
     if (errCode === 400) {
@@ -77,13 +67,9 @@ export default function ReviewsHome() {
               <strong>{review.title}</strong>
             </p>
             <p id="indiv-review-body">{review.review_body}</p>
-            <p>Review votes: {votes}</p>
-            <button id="upvote" onClick={upVote}>
-              👍
-            </button>{" "}
-            <button id="downvote" onClick={downVote}>
-              👎
-            </button>
+            {review.review_id && (
+              <Votes votes={review.votes} review_id={review.review_id} />
+            )}
             <hr />
           </div>
           <div id="comments-div">

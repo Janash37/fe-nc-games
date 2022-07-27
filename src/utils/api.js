@@ -51,3 +51,18 @@ export const getReviewComments = (review_id) => {
       return data.comments;
     });
 };
+
+export const updateReviewVotes = (review_id, votes) => {
+  return api
+    .patch(`/reviews/${review_id}`, { inc_votes: votes })
+    .then((response) => {
+      return response.data;
+    })
+    .then((data) => {
+      console.log(data.response.votes);
+      return data.response.votes;
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+};
