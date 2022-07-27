@@ -7,27 +7,58 @@ export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [review, setReview] = useState([]);
   const [comments, setComments] = useState([]);
+  const [votes, setVotes] = useState(null);
   const { review_id } = useParams();
+
+  const [error, setError] = useState(false);
+  const [errCode, setErrCode] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     getReviewById(review_id)
       .then((review) => {
         setReview(review);
-        console.log(review);
+        setVotes(review.votes);
         getReviewComments(review_id).then((comments) => {
           setComments(comments);
         });
         setIsLoading(false);
       })
       .catch((err) => {
+        setError(true);
         if (err.response.status === 400) {
-          console.log("Error: review ID must be a number");
+          setErrCode(400);
         } else if (err.response.status === 404) {
-          console.log("Error: review ID does not exist");
+          setErrCode(404);
         }
       });
   }, []);
+
+  const upVote = () => {
+    setVotes((prevValue) => prevValue + 1);
+  };
+
+  const downVote = () => {
+    setVotes((prevValue) => prevValue - 1);
+  };
+
+  if (error) {
+    if (errCode === 400) {
+      return (
+        <div>
+          <h4>Error</h4>
+          <p>Bad request: Review ID must be a number</p>
+        </div>
+      );
+    } else if (errCode === 404) {
+      return (
+        <div>
+          <h4>Error</h4>
+          <p>Invalid ID: Review ID does not yet exist!</p>
+        </div>
+      );
+    }
+  }
 
   return (
     <section id="indiv-review-page">
@@ -46,8 +77,13 @@ export default function ReviewsHome() {
               <strong>{review.title}</strong>
             </p>
             <p id="indiv-review-body">{review.review_body}</p>
-            <p>Review votes: {review.votes}</p>
-            <button id="upvote">👍</button> <button id="downvote">👎</button>
+            <p>Review votes: {votes}</p>
+            <button id="upvote" onClick={upVote}>
+              👍
+            </button>{" "}
+            <button id="downvote" onClick={downVote}>
+              👎
+            </button>
             <hr />
           </div>
           <div id="comments-div">
