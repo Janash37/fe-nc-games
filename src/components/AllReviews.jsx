@@ -25,7 +25,7 @@ export default function ReviewsHome() {
   return (
     <section id="reviews-homepage">
       {isLoading ? (
-        <p>Loading reviews..</p>
+        <p>Loading reviews...</p>
       ) : (
         <div>
           <p className="review-text">
@@ -39,7 +39,12 @@ export default function ReviewsHome() {
                     <strong>{review.title}</strong>
                   </p>
                   <p>By: {review.owner}</p>
-                  <p id="review-body">{review.review_body}</p>
+                  <p id="review-body">
+                    {review.review_body.slice(0, 150) + "..."}
+                  </p>
+                  <Link to={`/reviews/review/${review.review_id}`}>
+                    <button id="btn-read-more">Read more!</button>
+                  </Link>
                   <p>Votes: {review.votes}</p>
                 </li>
               );
