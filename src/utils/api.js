@@ -35,6 +35,9 @@ export const getReviewById = (review_id) => {
     })
     .then((data) => {
       return data.review[0];
+    })
+    .catch((err) => {
+      return Promise.reject(err);
     });
 };
 

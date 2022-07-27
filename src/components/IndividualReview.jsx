@@ -11,14 +11,22 @@ export default function ReviewsHome() {
 
   useEffect(() => {
     setIsLoading(true);
-    getReviewById(review_id).then((review) => {
-      setReview(review);
-      console.log(review);
-      getReviewComments(review_id).then((comments) => {
-        setComments(comments);
+    getReviewById(review_id)
+      .then((review) => {
+        setReview(review);
+        console.log(review);
+        getReviewComments(review_id).then((comments) => {
+          setComments(comments);
+        });
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          console.log("Error: review ID must be a number");
+        } else if (err.response.status === 404) {
+          console.log("Error: review ID does not exist");
+        }
       });
-      setIsLoading(false);
-    });
   }, []);
 
   return (
@@ -39,6 +47,7 @@ export default function ReviewsHome() {
             </p>
             <p id="indiv-review-body">{review.review_body}</p>
             <p>Review votes: {review.votes}</p>
+            <button id="upvote">👍</button> <button id="downvote">👎</button>
             <hr />
           </div>
           <div id="comments-div">

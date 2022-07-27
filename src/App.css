@@ -144,6 +144,12 @@
   margin: 0 auto 1.5rem auto;
 }
 
+#upvote,
+#downvote {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+}
+
 /* INDIVIDUAL REVIEWS */
 
 #indiv-review-body {
