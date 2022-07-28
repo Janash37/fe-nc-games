@@ -232,7 +232,7 @@ hr {
 }
 
 .comments-list {
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
 }
 
 #comment-li {
@@ -249,9 +249,28 @@ hr {
 
 #comment-author,
 #comment-date {
+  color: #282c34;
   margin: 0.5rem auto;
 }
 
 #no-comments {
   padding: 0.5rem;
+}
+
+#add-comment-form {
+  padding: 1rem auto;
+  margin: 0 0 2rem 0;
+}
+
+#form-header,
+#user-comment {
+  margin: 0.5rem;
+}
+
+#user-comment {
+  height: 3rem;
+}
+
+#comment-submit-btn {
+  cursor: pointer;
 }
