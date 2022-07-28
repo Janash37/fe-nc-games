@@ -65,3 +65,17 @@ export const updateReviewVotes = (review_id, votes) => {
       return Promise.reject(err);
     });
 };
+
+export const addComment = (reviewID, comment) => {
+  return api
+    .post(`/reviews/${reviewID}/comments`, {
+      username: "grumpy19",
+      body: comment,
+    })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

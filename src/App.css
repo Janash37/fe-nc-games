@@ -209,7 +209,7 @@ body {
 
 hr {
   width: 90%;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
 }
 
 #review-date {
@@ -232,7 +232,7 @@ hr {
 }
 
 .comments-list {
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
 }
 
 #comment-li {
@@ -249,9 +249,37 @@ hr {
 
 #comment-author,
 #comment-date {
+  color: #282c34;
   margin: 0.5rem auto;
 }
 
 #no-comments {
   padding: 0.5rem;
+}
+
+#add-comment-form {
+  padding: 1rem auto;
+  margin: 0 0 1rem 0;
+}
+
+#form-header,
+#user-comment {
+  margin: 0.5rem;
+}
+
+#submit-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-comment {
+  height: 5rem;
+  width: 13rem;
+}
+
+#comment-submit-btn {
+  cursor: pointer;
+  height: 2rem;
 }
