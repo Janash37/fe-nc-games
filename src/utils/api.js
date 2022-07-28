@@ -59,7 +59,6 @@ export const updateReviewVotes = (review_id, votes) => {
       return response.data;
     })
     .then((data) => {
-      console.log(data.response.votes);
       return data.response.votes;
     })
     .catch((err) => {
