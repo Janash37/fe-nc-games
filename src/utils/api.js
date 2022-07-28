@@ -73,7 +73,7 @@ export const addComment = (reviewID, comment) => {
       body: comment,
     })
     .then((response) => {
-      return response.data.comment.body;
+      return response.data.comment;
     })
     .catch((err) => {
       console.log(err);

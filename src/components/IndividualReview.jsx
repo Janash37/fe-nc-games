@@ -18,7 +18,7 @@ export default function ReviewsHome() {
     addComment(review_id, text)
       .then((response) => {
         setComments((currentComments) => {
-          return [...currentComments, response[0]];
+          return [...currentComments, response];
         });
         setIsLoading(false);
       })
