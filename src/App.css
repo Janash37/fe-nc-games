@@ -156,12 +156,21 @@ body {
   display: inline-block;
   font-size: 0.9rem;
   list-style: none;
-  margin: 0.5rem 2.5rem 0.5rem 0;
-  padding: 0.25rem;
+  margin: 0rem 2.5rem 0.5rem 0;
+}
+
+#review-title {
+  font-size: 1.15rem;
+  margin: 0.5rem 0;
 }
 
 #review-body {
   font-style: italic;
+}
+
+#review-author,
+#review-date {
+  margin: 0;
 }
 
 #sort-label {
@@ -259,4 +268,11 @@ hr {
 
 #no-comments {
   padding: 0.5rem;
+}
+
+/* PROFILE */
+
+#profile-container {
+  margin-left: 1.1rem;
+  width: 90%;
 }

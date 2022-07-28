@@ -11,6 +11,7 @@ import ReviewsHome from "./components/ReviewsHome";
 import AllReviews from "./components/AllReviews";
 import Categories from "./components/Categories";
 import IndividualReview from "./components/IndividualReview";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               path="/reviews/review/:review_id"
               element={<IndividualReview />}
             ></Route>
+            <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </header>
       </div>

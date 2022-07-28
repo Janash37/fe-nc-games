@@ -3,30 +3,55 @@ import { useState, useEffect } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import SortedRevs from "./SortedRevs";
 
-export default function ReviewsHome() {
+export default function AllReviews() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
   const [data, setData] = useState("");
-  const [searchParams] = useSearchParams();
-
-  const category = searchParams.get("category");
-  const query = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   function changeSortOrder(event) {
-    if (query.search.includes("category")) {
-      setData(`${query.search}&${event.target.value}`);
-    } else {
-      setData(`?${event.target.value}`);
+    const dropDownValue = event.target.value;
+
+    if (dropDownValue === "newest") {
+      setSearchParams({
+        sort_by: "created_at",
+        order: "desc",
+      });
+    } else if (dropDownValue === "oldest") {
+      setSearchParams({
+        sort_by: "created_at",
+        order: "asc",
+      });
+    } else if (dropDownValue === "mostComms") {
+      setSearchParams({
+        sort_by: "comment_count",
+        order: "desc",
+      });
+    } else if (dropDownValue === "leastComms") {
+      setSearchParams({
+        sort_by: "comment_count",
+        order: "asc",
+      });
+    } else if (dropDownValue === "mostVotes") {
+      setSearchParams({
+        sort_by: "votes",
+        order: "desc",
+      });
+    } else if (dropDownValue === "leastVotes") {
+      setSearchParams({
+        sort_by: "votes",
+        order: "asc",
+      });
     }
   }
 
   useEffect(() => {
     setIsLoading(true);
-    getAllReviews(data).then((reviews) => {
+    getAllReviews(searchParams).then((reviews) => {
       setReviews(reviews);
       setIsLoading(false);
     });
-  }, [data]);
+  }, [searchParams]);
 
   return (
     <section id="reviews-homepage">

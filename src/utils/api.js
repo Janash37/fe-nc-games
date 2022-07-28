@@ -8,7 +8,6 @@ const api = axios.create({
 export const getAllReviews = (searchParams, category) => {
   const sortQuery = searchParams.get("sort_by");
   const orderQuery = searchParams.get("order");
-  console.log(category);
 
   return api
     .get(`/reviews`, {
@@ -22,16 +21,16 @@ export const getAllReviews = (searchParams, category) => {
     });
 };
 
-export const getReviewsByCategory = (category) => {
-  return api
-    .get(`/reviews?category=${category}`)
-    .then((response) => {
-      return response.data;
-    })
-    .then((data) => {
-      return data.reviews;
-    });
-};
+// export const getReviewsByCategory = (category) => {
+//   return api
+//     .get(`/reviews?category=${category}`)
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .then((data) => {
+//       return data.reviews;
+//     });
+// };
 
 export const getReviewById = (review_id) => {
   return api
