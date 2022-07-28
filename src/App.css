@@ -164,6 +164,10 @@ body {
   font-style: italic;
 }
 
+#sort-label {
+  font-size: 0.9rem;
+}
+
 #btn-read-more {
   cursor: pointer;
   padding: 0.1rem 0.3rem;

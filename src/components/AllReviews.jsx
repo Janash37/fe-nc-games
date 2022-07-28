@@ -1,6 +1,7 @@
 import { getAllReviews, getReviewsByCategory } from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import SortedRevs from "./SortedRevs";
 
 export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +32,7 @@ export default function ReviewsHome() {
           <p className="review-text">
             See what our users are saying about these games!
           </p>
+          <SortedRevs />
           <ul className="reviews-list">
             {reviews.map((review) => {
               return (
