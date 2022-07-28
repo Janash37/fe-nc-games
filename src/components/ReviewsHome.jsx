@@ -41,7 +41,7 @@ export default function ReviewsHome() {
             <button className="review-category-button">Strategy 🤔</button>
           </Link>
           <Link to="/reviews/all">
-            <button className="review-category-button">View all reviews</button>
+            <button className="review-category-button">View all</button>
           </Link>
         </div>
       </div>

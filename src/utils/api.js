@@ -35,6 +35,9 @@ export const getReviewById = (review_id) => {
     })
     .then((data) => {
       return data.review[0];
+    })
+    .catch((err) => {
+      return Promise.reject(err);
     });
 };
 
@@ -46,5 +49,19 @@ export const getReviewComments = (review_id) => {
     })
     .then((data) => {
       return data.comments;
+    });
+};
+
+export const updateReviewVotes = (review_id, votes) => {
+  return api
+    .patch(`/reviews/${review_id}`, { inc_votes: votes })
+    .then((response) => {
+      return response.data;
+    })
+    .then((data) => {
+      return data.response.votes;
+    })
+    .catch((err) => {
+      return Promise.reject(err);
     });
 };

@@ -1,7 +1,7 @@
 import { getReviewById, getReviewComments } from "../utils/api";
+import { Votes } from "./Votes";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { moment } from "moment";
 
 export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
@@ -9,17 +9,46 @@ export default function ReviewsHome() {
   const [comments, setComments] = useState([]);
   const { review_id } = useParams();
 
+  const [error, setError] = useState(false);
+  const [errCode, setErrCode] = useState(null);
+
   useEffect(() => {
     setIsLoading(true);
-    getReviewById(review_id).then((review) => {
-      setReview(review);
-      console.log(review);
-      getReviewComments(review_id).then((comments) => {
-        setComments(comments);
+    getReviewById(review_id)
+      .then((review) => {
+        setReview(review);
+        getReviewComments(review_id).then((comments) => {
+          setComments(comments);
+        });
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(true);
+        if (err.response.status === 400) {
+          setErrCode(400);
+        } else if (err.response.status === 404) {
+          setErrCode(404);
+        }
       });
-      setIsLoading(false);
-    });
   }, []);
+
+  if (error) {
+    if (errCode === 400) {
+      return (
+        <div>
+          <h4>Error</h4>
+          <p>Bad request: Review ID must be a number</p>
+        </div>
+      );
+    } else if (errCode === 404) {
+      return (
+        <div>
+          <h4>Error</h4>
+          <p>Invalid ID: Review ID does not yet exist!</p>
+        </div>
+      );
+    }
+  }
 
   return (
     <section id="indiv-review-page">
@@ -38,7 +67,9 @@ export default function ReviewsHome() {
               <strong>{review.title}</strong>
             </p>
             <p id="indiv-review-body">{review.review_body}</p>
-            <p>Review votes: {review.votes}</p>
+            {review.review_id && (
+              <Votes votes={review.votes} review_id={review.review_id} />
+            )}
             <hr />
           </div>
           <div id="comments-div">
