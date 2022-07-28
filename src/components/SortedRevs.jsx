@@ -6,7 +6,7 @@ export default function SortedRevs({ sortOption }) {
       </label>
       <select id="sort-select" onChange={sortOption}>
         <option>--Choose an option--</option>
-        <option value="sort_by=created_at&order=desc">Newest</option>
+        <option value="newest">Newest</option>
         <option value="sort_by=created_at&order=asc">Oldest</option>
         <option value="sort_by=comment_count&order=desc">Most comments</option>
         <option value="sort_by=comment_count&order=asc">Least comments</option>

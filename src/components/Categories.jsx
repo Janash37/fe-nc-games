@@ -12,40 +12,47 @@ export default function ReviewsHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
   const [data, setData] = useState("");
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { category } = useParams();
 
-  const params = searchParams.get("category");
   const query = useLocation();
 
   function changeSortOrder(event) {
-    // const queryStr = event.target.value;
-    console.log(category);
-    console.log(query);
-    if (query.search.includes("category")) {
-      console.log(event.target.value);
-      setData(`${query.search}&${event.target.value}`);
-    } else {
-      console.log(event.target.value);
-      setData(`?${event.target.value}`);
+    const dropDownValue = event.target.value;
+
+    if (dropDownValue === "newest") {
+      setSearchParams({
+        sort_by: "created_at",
+        order: "desc",
+      });
     }
-    console.log(data);
+
+    // if (query.search.includes("category")) {
+    //   console.log("<<< in here");
+    //   setData(`${query.search}&${event.target.value}`);
+    // // } else {
+    //   console.log("<<<in the else");
+    //   setData(`?${event.target.value}`);
+    // // }
+    // console.log(data);
   }
 
   useEffect(() => {
     setIsLoading(true);
-    if (!category) {
-      getAllReviews().then((reviews) => {
-        setReviews(reviews);
-        setIsLoading(false);
-      });
-    } else {
-      getReviewsByCategory(category).then((reviews) => {
-        setReviews(reviews);
-        setIsLoading(false);
-      });
-    }
-  }, []);
+    console.log(searchParams.get("sort_by"));
+    searchParams.delete("sort_by");
+    getAllReviews(searchParams, category).then((reviews) => {
+      setReviews(reviews);
+      setIsLoading(false);
+    });
+    // }
+    // else {
+    //   getReviewsByCategory(category).then((reviews) => {
+    //     setReviews(reviews);
+    //     setIsLoading(false);
+    //   });
+    // }
+  }, [searchParams]);
 
   return (
     <section id="reviews-homepage">

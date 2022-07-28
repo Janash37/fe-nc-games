@@ -5,9 +5,15 @@ const api = axios.create({
 });
 
 //CATEGORIES
-export const getAllReviews = (query) => {
+export const getAllReviews = (searchParams, category) => {
+  const sortQuery = searchParams.get("sort_by");
+  const orderQuery = searchParams.get("order");
+  console.log(category);
+
   return api
-    .get(`/reviews${query}`)
+    .get(`/reviews`, {
+      params: { sort_by: sortQuery, order: orderQuery, category: category },
+    })
     .then((response) => {
       return response.data;
     })
