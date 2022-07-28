@@ -9,10 +9,8 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ReviewsHome from "./components/ReviewsHome";
 import AllReviews from "./components/AllReviews";
+import Categories from "./components/Categories";
 import IndividualReview from "./components/IndividualReview";
-
-//USER CONTEXT
-import { UserContext } from "./contexts/UserContext";
 
 function App() {
   return (
@@ -25,7 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/reviews" element={<ReviewsHome />} />
             <Route path="/reviews/all" element={<AllReviews />}></Route>
-            <Route path="/reviews/:category" element={<AllReviews />}></Route>
+            <Route path="/category/:category" element={<Categories />}></Route>
             <Route
               path="/reviews/review/:review_id"
               element={<IndividualReview />}

@@ -5,9 +5,9 @@ const api = axios.create({
 });
 
 //CATEGORIES
-export const getAllReviews = () => {
+export const getAllReviews = (query) => {
   return api
-    .get(`/reviews`)
+    .get(`/reviews${query}`)
     .then((response) => {
       return response.data;
     })
