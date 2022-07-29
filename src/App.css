@@ -489,3 +489,16 @@ hr {
   margin-left: 1.1rem;
   width: 90%;
 }
+
+/* ERRORS */
+
+.error-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.error-message-div {
+  width: 90%;
+}

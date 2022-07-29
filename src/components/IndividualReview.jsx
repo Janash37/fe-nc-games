@@ -78,17 +78,27 @@ export default function ReviewsHome() {
   if (error) {
     if (errCode === 400) {
       return (
-        <div>
-          <h4>Error</h4>
-          <p>Bad request: Review ID must be a number</p>
-        </div>
+        <section className="error-section">
+          <div className="error-message-div">
+            <h4>Error</h4>
+            <p>
+              Sorry, that looks like a bad request. The review ID must be a
+              number!
+            </p>
+          </div>
+        </section>
       );
     } else if (errCode === 404) {
       return (
-        <div>
-          <h4>Error</h4>
-          <p>Invalid ID: Review ID does not yet exist!</p>
-        </div>
+        <section className="error-section">
+          <div className="error-message-div">
+            <h4>Error</h4>
+            <p>
+              Sorry, that looks like an invalid ID. The review ID must not exist
+              yet...
+            </p>
+          </div>
+        </section>
       );
     }
   }
