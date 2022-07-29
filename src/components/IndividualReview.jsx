@@ -115,7 +115,7 @@ export default function ReviewsHome() {
                 />
               </>
             )}
-            <Link to={`/reviews/${review.category}`}>
+            <Link to={`/category/${review.category}`}>
               <button className="back-button">Back</button>
             </Link>
           </div>

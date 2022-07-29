@@ -5,9 +5,14 @@ const api = axios.create({
 });
 
 //CATEGORIES
-export const getAllReviews = () => {
+export const getAllReviews = (searchParams, category) => {
+  const sortQuery = searchParams.get("sort_by");
+  const orderQuery = searchParams.get("order");
+
   return api
-    .get(`/reviews`)
+    .get(`/reviews`, {
+      params: { sort_by: sortQuery, order: orderQuery, category: category },
+    })
     .then((response) => {
       return response.data;
     })
@@ -16,16 +21,16 @@ export const getAllReviews = () => {
     });
 };
 
-export const getReviewsByCategory = (category) => {
-  return api
-    .get(`/reviews?category=${category}`)
-    .then((response) => {
-      return response.data;
-    })
-    .then((data) => {
-      return data.reviews;
-    });
-};
+// export const getReviewsByCategory = (category) => {
+//   return api
+//     .get(`/reviews?category=${category}`)
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .then((data) => {
+//       return data.reviews;
+//     });
+// };
 
 export const getReviewById = (review_id) => {
   return api
