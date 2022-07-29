@@ -1,26 +1,55 @@
-import { getAllReviews, getReviewsByCategory } from "../utils/api";
+import { getAllReviews } from "../utils/api";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import SortedRevs from "./SortedRevs";
 
-export default function ReviewsHome() {
+export default function AllReviews() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
-  const { category } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function changeSortOrder(event) {
+    const dropDownValue = event.target.value;
+    if (dropDownValue === "newest") {
+      setSearchParams({
+        sort_by: "created_at",
+        order: "desc",
+      });
+    } else if (dropDownValue === "oldest") {
+      setSearchParams({
+        sort_by: "created_at",
+        order: "asc",
+      });
+    } else if (dropDownValue === "mostComms") {
+      setSearchParams({
+        sort_by: "comment_count",
+        order: "desc",
+      });
+    } else if (dropDownValue === "leastComms") {
+      setSearchParams({
+        sort_by: "comment_count",
+        order: "asc",
+      });
+    } else if (dropDownValue === "mostVotes") {
+      setSearchParams({
+        sort_by: "votes",
+        order: "desc",
+      });
+    } else if (dropDownValue === "leastVotes") {
+      setSearchParams({
+        sort_by: "votes",
+        order: "asc",
+      });
+    }
+  }
 
   useEffect(() => {
     setIsLoading(true);
-    if (!category) {
-      getAllReviews().then((reviews) => {
-        setReviews(reviews);
-        setIsLoading(false);
-      });
-    } else {
-      getReviewsByCategory(category).then((reviews) => {
-        setReviews(reviews);
-        setIsLoading(false);
-      });
-    }
-  }, []);
+    getAllReviews(searchParams).then((reviews) => {
+      setReviews(reviews);
+      setIsLoading(false);
+    });
+  }, [searchParams]);
 
   return (
     <section id="reviews-homepage">
@@ -31,6 +60,7 @@ export default function ReviewsHome() {
           <p className="review-text">
             See what our users are saying about these games!
           </p>
+          <SortedRevs sortOption={changeSortOrder} />
           <ul className="reviews-list">
             {reviews.map((review) => {
               return (

@@ -10,7 +10,7 @@ export default function NavBar() {
       <Link className="navbar-link" to="/reviews">
         <strong>{"Game Reviews"}</strong>
       </Link>
-      <Link className="navbar-link" to="/">
+      <Link className="navbar-link" to="/profile">
         <strong>{"Profile"}</strong>
       </Link>
     </section>
