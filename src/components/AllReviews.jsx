@@ -1,17 +1,15 @@
-import { getAllReviews, getReviewsByCategory } from "../utils/api";
+import { getAllReviews } from "../utils/api";
 import { useState, useEffect } from "react";
-import { Link, useSearchParams, useLocation } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import SortedRevs from "./SortedRevs";
 
 export default function AllReviews() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
-  const [data, setData] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
   function changeSortOrder(event) {
     const dropDownValue = event.target.value;
-
     if (dropDownValue === "newest") {
       setSearchParams({
         sort_by: "created_at",

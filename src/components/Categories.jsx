@@ -1,25 +1,16 @@
 import { getAllReviews } from "../utils/api";
 import { useState, useEffect } from "react";
-import {
-  Link,
-  useSearchParams,
-  useParams,
-  useLocation,
-} from "react-router-dom";
+import { Link, useSearchParams, useParams } from "react-router-dom";
 import SortedRevs from "./SortedRevs";
 
 export default function Categories() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
-  const [data, setData] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const { category } = useParams();
 
-  // const query = useLocation();
-
   function changeSortOrder(event) {
     const dropDownValue = event.target.value;
-
     if (dropDownValue === "newest") {
       setSearchParams({
         sort_by: "created_at",
@@ -51,30 +42,14 @@ export default function Categories() {
         order: "asc",
       });
     }
-    // if (query.search.includes("category")) {
-    //   console.log("<<< in here");
-    //   setData(`${query.search}&${event.target.value}`);
-    // // } else {
-    //   console.log("<<<in the else");
-    //   setData(`?${event.target.value}`);
-    // // }
-    // console.log(data);
   }
 
   useEffect(() => {
     setIsLoading(true);
-    // searchParams.delete("sort_by");
     getAllReviews(searchParams, category).then((reviews) => {
       setReviews(reviews);
       setIsLoading(false);
     });
-    // }
-    // else {
-    //   getReviewsByCategory(category).then((reviews) => {
-    //     setReviews(reviews);
-    //     setIsLoading(false);
-    //   });
-    // }
   }, [searchParams]);
 
   return (

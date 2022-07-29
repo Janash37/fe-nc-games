@@ -1,9 +1,7 @@
 export default function SortedRevs({ sortOption }) {
   return (
     <div>
-      <label id="sort-label" for="sort-select">
-        Sort reviews by:{" "}
-      </label>
+      <label id="sort-label">Sort reviews by: </label>
       <select id="sort-select" onChange={sortOption}>
         <option>--Choose an option--</option>
         <option value="newest">Newest</option>
