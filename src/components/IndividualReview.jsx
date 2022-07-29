@@ -1,4 +1,5 @@
-import { getReviewById, getReviewComments } from "../utils/api";
+import { getReviewById, getReviewComments, addComment } from "../utils/api";
+import { PostComment } from "./PostComment";
 import { Votes } from "./Votes";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -11,6 +12,20 @@ export default function ReviewsHome() {
 
   const [error, setError] = useState(false);
   const [errCode, setErrCode] = useState(null);
+
+  const submitComment = (text) => {
+    setIsLoading(true);
+    addComment(review_id, text)
+      .then((response) => {
+        setComments((currentComments) => {
+          return [response, ...currentComments];
+        });
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -79,17 +94,26 @@ export default function ReviewsHome() {
             {comments.length === 0 ? (
               <p id="no-comments">No comments yet!</p>
             ) : (
-              <ul className="comments-list">
-                {comments.map((comment) => {
-                  return (
-                    <li id="comment-li" key={comment.comment_id}>
-                      <p id="comment-body">{comment.body}</p>
-                      <p id="comment-author">By: {comment.author}</p>
-                      <p id="comment-date">{comment.created_at.slice(0, 10)}</p>
-                    </li>
-                  );
-                })}
-              </ul>
+              <>
+                <ul className="comments-list">
+                  {comments.map((comment) => {
+                    return (
+                      <li id="comment-li" key={comment.comment_id}>
+                        <p id="comment-body">{comment.body}</p>
+                        <p id="comment-author">By: {comment.author}</p>
+                        <p id="comment-date">
+                          {comment.created_at.slice(0, 10)}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <hr />
+                <PostComment
+                  submitBtn="Add comment"
+                  handleSubmit={submitComment}
+                />
+              </>
             )}
             <Link to={`/category/${review.category}`}>
               <button className="back-button">Back</button>
