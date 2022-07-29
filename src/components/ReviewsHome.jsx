@@ -9,11 +9,10 @@ export default function ReviewsHome() {
       </p>
       <div id="review-links">
         <div id="review-column-1">
-
-          <Link to="/reviews/deck-building">
+          <Link to="/category/deck-building">
             <button className="review-category-button">Deck-building 🃏</button>
           </Link>
-          <Link to="/reviews/dexterity">
+          <Link to="/category/dexterity">
             <button className="review-category-button">Dexterity 🎯</button>
           </Link>
           <Link to="/category/engine-building">
@@ -26,8 +25,7 @@ export default function ReviewsHome() {
           </Link>
         </div>
         <div id="review-column-2">
-          <Link to="/reviews/push-your-luck">
-
+          <Link to="/category/push-your-luck">
             <button className="review-category-button">
               Push Your Luck 🤞
             </button>

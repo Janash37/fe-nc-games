@@ -82,9 +82,11 @@ export default function Categories() {
               );
             })}
           </ul>
-          <Link to="/reviews">
-            <button className="back-button">Back</button>
-          </Link>
+          <div id="back-div">
+            <Link to="/reviews">
+              <button className="back-button">Back</button>
+            </Link>
+          </div>
         </div>
       )}
     </section>

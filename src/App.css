@@ -240,8 +240,6 @@ body {
 
 #btn-read-more {
   background-color: #fee6e3;
-  height: 36px;
-  width: 7rem;
 }
 
 #btn-read-more,
@@ -268,7 +266,7 @@ body {
 }
 
 #btn-read-more:after {
-  height: 34px;
+  height: 28px;
 }
 
 #btn-read-more:after,
@@ -483,6 +481,7 @@ hr {
   border-radius: 6px;
   cursor: pointer;
   position: relative;
+}
 
 /* PROFILE */
 
