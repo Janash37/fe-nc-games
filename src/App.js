@@ -1,7 +1,6 @@
 import "./App.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //COMPONENTS
 import Header from "./components/Header";
@@ -30,6 +29,7 @@ function App() {
               element={<IndividualReview />}
             ></Route>
             <Route path="/profile" element={<Profile />}></Route>
+            <Route path="*" element={<Navigate to="/" replace />}></Route>
           </Routes>
         </header>
       </div>

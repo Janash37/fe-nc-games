@@ -4,7 +4,6 @@ import { UserContext } from "../contexts/UserContext";
 export default function NavBar() {
   return (
     <section id="nav-bar">
-
       <section id="nav-bar-top">
         <Link className="navbar-link" to="/">
           <strong>{"Home"}</strong>
@@ -12,7 +11,7 @@ export default function NavBar() {
         <Link className="navbar-link" to="/reviews">
           <strong>{"Game Reviews"}</strong>
         </Link>
-        <Link className="navbar-link" to="/">
+        <Link className="navbar-link" to="/profile">
           <strong>{"Profile"}</strong>
         </Link>
       </section>
