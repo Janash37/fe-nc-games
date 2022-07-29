@@ -46,7 +46,7 @@ body {
 
 /* HEADER */
 #header {
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   text-shadow: 2px 2px #111;
 }
 
@@ -67,7 +67,6 @@ body {
 
 #header-dice {
   padding: 0.5rem 0 0 0.5rem;
-  margin-top: 1rem;
   width: 60px;
 }
 
@@ -75,14 +74,20 @@ body {
   color: white;
   font-style: italic;
   margin: 0;
-  padding: 0.25rem;
 }
 
 /* NAV BAR */
 
-#nav-bar {
+#nav-bar-top {
   background-color: hsl(33, 100%, 62%);
-  padding: 1rem;
+  padding: 0 0 0.5rem 0;
+}
+
+#nav-bar-bottom {
+  background-color: hsl(33, 100%, 69%);
+  color: rgb(59, 59, 59);
+  font-size: 0.9rem;
+  padding: 0.5rem;
 }
 
 .navbar-link {
@@ -456,4 +461,12 @@ hr {
 #comment-submit-btn {
   cursor: pointer;
   height: 2rem;
+}
+
+#delete-comment-btn {
+  background-color: #fff;
+  border: 2px solid #111;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
 }
