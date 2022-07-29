@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# 2D6 Game Reviews - NC games front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Background
 
-## Available Scripts
+This front end was created as a companion piece to the back-end project "Jan's boardgame API", which provided data on a series of board games and game reviews. The process of building this app was intended as an introduction on how to produce a functional, tested and user-friendly front-end.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Using the app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The app is fairly self-explanatory in terms of how to navigate around. Users can view game reviews posted by others, vote on the usefulness of those reviews and submit their own comments. A user profile section will be implemented in the near future.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Link to the deployed app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This app is best viewed on mobile! It can be found here: https://2d6.netlify.app
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Want to use these project files yourself?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The public repo can be found here: https://github.com/Janash37/fe-nc-games. To work on it locally:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. First fork the repo to your own GitHub account
+2. Clone it down to your machine, into the working directory:
 
-### `npm run eject`
+```JSON
+git clone https://github.com/Janash37/fe-nc-games
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Navigate to the root directory and open the files in the code editor of your choosing
+4. Before doing anything else, run the following to install all necessary npm packages:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```JSON
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Now you're ready to get started. If at any point you want to view the app in development mode, run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```JSON
+npm start
+```
 
-## Learn More
+Happy coding!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API links
 
-### Code Splitting
+Links to the back-end can be found here:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+GitHub: https://github.com/Janash37/be-games-project
 
-### Analyzing the Bundle Size
+Heroku: https://be-boardgames-api.herokuapp.com/api
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Minimum version requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The minimum version of Node needed to run this front-end locally is:
 
-### Advanced Configuration
+- v16.14.2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If possible, however, we would recommend using v16.16.0 and above.
