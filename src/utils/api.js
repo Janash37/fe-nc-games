@@ -79,3 +79,9 @@ export const addComment = (reviewID, comment) => {
       console.log(err);
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return api.delete(`/comments/${comment_id}`).then((response) => {
+    return response;
+  });
+};
