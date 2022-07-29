@@ -7,6 +7,7 @@ export default function Categories() {
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(false);
   const { category } = useParams();
 
   function changeSortOrder(event) {
@@ -46,11 +47,24 @@ export default function Categories() {
 
   useEffect(() => {
     setIsLoading(true);
-    getAllReviews(searchParams, category).then((reviews) => {
-      setReviews(reviews);
-      setIsLoading(false);
-    });
+    getAllReviews(searchParams, category)
+      .then((reviews) => {
+        setReviews(reviews);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(true);
+      });
   }, [searchParams]);
+
+  if (error) {
+    return (
+      <p className="review-text">
+        Sorry, it looks like that category doesn't exist! Please choose a
+        category from the <Link to="/reviews">Game Reviews</Link> page.
+      </p>
+    );
+  }
 
   return (
     <section id="reviews-homepage">
