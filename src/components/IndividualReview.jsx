@@ -132,14 +132,16 @@ export default function ReviewsHome() {
                         <p id="comment-date">
                           {comment.created_at.slice(0, 10)}
                         </p>
-                        <button
-                          id="delete-comment-btn"
-                          onClick={() =>
-                            removeComment(comment.comment_id, comment.author)
-                          }
-                        >
-                          X
-                        </button>
+                        {comment.author === UserContext._currentValue ? (
+                          <button
+                            id="delete-comment-btn"
+                            onClick={() =>
+                              removeComment(comment.comment_id, comment.author)
+                            }
+                          >
+                            X
+                          </button>
+                        ) : null}
                       </li>
                     );
                   })}

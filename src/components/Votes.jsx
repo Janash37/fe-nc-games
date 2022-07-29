@@ -37,12 +37,14 @@ export const Votes = ({ votes, review_id }) => {
   return (
     <div>
       <p>Review votes: {reviewVotes}</p>
-      <button id="upvote" onClick={upVote}>
-        👍
-      </button>{" "}
-      <button id="downvote" onClick={downVote}>
-        👎
-      </button>
+      <div id="vote-btns">
+        <button id="upvote" onClick={upVote}>
+          👍
+        </button>{" "}
+        <button id="downvote" onClick={downVote}>
+          👎
+        </button>
+      </div>
     </div>
   );
 };

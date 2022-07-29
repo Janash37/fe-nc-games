@@ -9,13 +9,12 @@ export default function ReviewsHome() {
       </p>
       <div id="review-links">
         <div id="review-column-1">
-          <Link to="/category/deck-building">
+
+          <Link to="/reviews/deck-building">
             <button className="review-category-button">Deck-building 🃏</button>
           </Link>
-          <Link to="/category/dexterity">
-            <button className="review-category-button">
-              Dexterity Games 🎯
-            </button>
+          <Link to="/reviews/dexterity">
+            <button className="review-category-button">Dexterity 🎯</button>
           </Link>
           <Link to="/category/engine-building">
             <button className="review-category-button">
@@ -26,8 +25,9 @@ export default function ReviewsHome() {
             <button className="review-category-button">Hidden Roles 🥷</button>
           </Link>
         </div>
-        <div id="review-column-1">
-          <Link to="/category/push-your-luck">
+        <div id="review-column-2">
+          <Link to="/reviews/push-your-luck">
+
             <button className="review-category-button">
               Push Your Luck 🤞
             </button>
