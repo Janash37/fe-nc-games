@@ -38,7 +38,7 @@ export default function ReviewsHome() {
                   <p>
                     <strong>{review.title}</strong>
                   </p>
-                  <p>By: {review.owner}</p>
+                  <p id="review-author">By: {review.owner}</p>
                   <p id="review-body">
                     {review.review_body.slice(0, 150) + "..."}
                   </p>
@@ -50,9 +50,11 @@ export default function ReviewsHome() {
               );
             })}
           </ul>
-          <Link to="/reviews">
-            <button className="back-button">Back</button>
-          </Link>
+          <div id="back-div">
+            <Link to="/reviews">
+              <button className="back-button">Back</button>
+            </Link>
+          </div>
         </div>
       )}
     </section>

@@ -71,7 +71,7 @@ export default function ReviewsHome() {
                   <p>
                     <strong>{review.title}</strong>
                   </p>
-                  <p>By: {review.owner}</p>
+                  <p id="review-author">By: {review.owner}</p>
                   <p id="review-body">
                     {review.review_body.slice(0, 150) + "..."}
                   </p>
